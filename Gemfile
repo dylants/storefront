@@ -6,6 +6,7 @@ gem "pg", "~> 0.14.0"
 gem 'jquery-rails', '~> 2.1.1'
 gem "bootstrap-sass", "~> 2.0.4.0"
 gem 'awesome_print', '~> 1.0.2'
+gem "faker", "~> 1.0.1"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'

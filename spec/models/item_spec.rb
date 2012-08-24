@@ -14,11 +14,9 @@ require 'spec_helper'
 
 describe Item do
 
-  before do
-    @item = Item.new(name: "iPod", description: "brand new 8GB iPod", price: 99.99)
-  end
+  let(:item) { FactoryGirl.create(:item) }
 
-  subject { @item }
+  subject { item }
 
   it { should respond_to(:name) }
   it { should respond_to(:description) }
@@ -27,27 +25,27 @@ describe Item do
   it { should be_valid }
 
   describe "when name is not present" do
-    before { @item.name = "" }
+    before { item.name = "" }
     it { should_not be_valid }
   end
 
   describe "when description is not present" do
-    before { @item.description = "" }
+    before { item.description = "" }
     it { should_not be_valid }
   end
 
   describe "when price is not present" do
-    before { @item.price = "" }
+    before { item.price = "" }
     it { should_not be_valid }
   end
 
   describe "when price is 0.00" do
-    before { @item.price = "0.00" }
+    before { item.price = "0.00" }
     it { should_not be_valid }
   end
 
   describe "when price less than 0.00" do
-    before { @item.price = "-0.01" }
+    before { item.price = "-0.01" }
     it { should_not be_valid }
   end
 end
