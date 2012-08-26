@@ -1,5 +1,5 @@
 Storefront::Application.routes.draw do
   resources :items
 
-  # root :to => 'welcome#index'
+  root :to => 'home#index'
 end

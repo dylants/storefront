@@ -9,6 +9,8 @@ describe "ItemPages" do
 
     before(:each) { visit items_path }
 
+    it { should have_selector('title', text: 'All Items')}
+
     it "should list each item" do
       Item.all.each do |item|
         page.should have_selector('li', text: item.name)
@@ -20,6 +22,7 @@ describe "ItemPages" do
     let(:item) { FactoryGirl.create(:item) }
     before { visit item_path(item) }
 
+    it { should have_selector('title', text: item.name) }
     it { should have_selector('h1', text: item.name) }
     it { should have_content(item.description) }
     it { should have_content(item.price) }
