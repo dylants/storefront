@@ -27,4 +27,34 @@ describe "ItemPages" do
     it { should have_content(item.description) }
     it { should have_content(item.price) }
   end
+
+  describe "item new page" do
+    before { visit new_item_path }
+
+    describe "create item" do
+      let(:item_name) { "Random Item Name" }
+      let(:item_description) { "This is the random description of the item" }
+      let(:item_price) { "22.99" }
+      let(:submit) { "Create Item" }
+
+      before do
+        fill_in "Name", with: item_name
+        fill_in "Description", with: item_description
+        fill_in "Price", with: item_price
+      end
+
+      it "should create an item" do
+        expect { click_button submit }.to change(Item, :count).by(1)
+      end
+
+      describe "after creating an item" do
+        before { click_button submit }
+
+        it { should have_selector('title', text: item_name) }
+        it { should have_selector('h1', text: item_name) }
+        it { should have_content(item_description) }
+        it { should have_content(item_price) }
+      end
+    end
+  end
 end
