@@ -8,6 +8,7 @@ gem "bootstrap-sass", "~> 2.0.4.0"
 gem 'awesome_print', '~> 1.0.2'
 gem "faker", "~> 1.0.1"
 gem "devise", "~> 2.1.2"
+gem "simple_form", "~> 2.0.2"
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.5'
