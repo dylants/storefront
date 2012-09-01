@@ -55,7 +55,7 @@ describe "Authentication" do
         click_button "Register"
       end
 
-      it { should have_content("You have signed up successfully") }
+      it { should have_content("Registration Complete!") }
     end
   end
 end
