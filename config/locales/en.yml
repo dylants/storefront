@@ -2,4 +2,30 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  site_name: "Biff's House of Meat"
+  devise:
+    registrations:
+      new:
+        title: "Register New User"
+        submit: "Register"
+    sessions:
+      new:
+        title: "Sign In"
+        remember_me_label: "Remember me"
+        submit: "Sign In"
+    shared:
+      links:
+        sign_in: "Sign In"
+        register: "Register"
+        forgot_password: "Forgot your password?"
+  home:
+    index:
+      site_heading: "Welcome to Biff's House of Meat!"
+      site_description: "Where the meat's fresh or your money back!"
+  layouts:
+    header:
+      home: "Home"
+      items: "Meats"
+      sign_in: "Sign In"
+      sign_out: "Sign Out"
+      register: "Register"
