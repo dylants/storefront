@@ -2,7 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  site_name: "Biff's House of Meat"
+  site_name: "Biff's House of Tacos"
   devise:
     registrations:
       new:
@@ -20,12 +20,18 @@ en:
         forgot_password: "Forgot your password?"
   home:
     index:
-      site_heading: "Welcome to Biff's House of Meat!"
-      site_description: "Where the meat's fresh or your money back!"
+      site_heading: "Welcome to Biff's House of Tacos!"
+      site_description: "Where the taco meat can't be beat!"
+  items:
+    index:
+      title: "All Tacos"
+    new:
+      title: "Add Taco"
+      submit: "Add Taco"
   layouts:
     header:
       home: "Home"
-      items: "Meats"
+      items: "Tacos"
       sign_in: "Sign In"
       sign_out: "Sign Out"
       register: "Register"

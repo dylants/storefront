@@ -4,6 +4,8 @@
                     :html => { :class => 'form-vertical' },
                     :as => resource_name,
                     :url => session_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
   <%= f.input :email %>
   <%= f.input :password %>
   <%= f.input :remember_me, :label => false, :inline_label => t('.remember_me_label'), :as => :boolean %>

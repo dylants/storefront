@@ -9,7 +9,7 @@ describe "ItemPages" do
 
     before(:each) { visit items_path }
 
-    it { should have_selector('title', text: 'All Items')}
+    it { should have_selector('title', text: 'All Tacos')}
 
     it "should list each item" do
       Item.all.each do |item|
@@ -32,10 +32,10 @@ describe "ItemPages" do
     before { visit new_item_path }
 
     describe "create item" do
-      let(:item_name) { "Random Item Name" }
-      let(:item_description) { "This is the random description of the item" }
-      let(:item_price) { "22.99" }
-      let(:submit) { "Create Item" }
+      let(:item_name) { "Random New Taco" }
+      let(:item_description) { "This is the random description of the taco" }
+      let(:item_price) { "2.99" }
+      let(:submit) { "Add" }
 
       before do
         fill_in "Name", with: item_name
