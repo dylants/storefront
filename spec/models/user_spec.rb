@@ -48,6 +48,11 @@ describe User do
     it { should_not be_valid }
   end
 
+  describe "when email is not valid" do
+    before { user.email = "biff.com" }
+    it { should_not be_valid }
+  end
+
   describe "when password is not present" do
     before { user.password = "" }
     it { should_not be_valid }
@@ -55,6 +60,11 @@ describe User do
 
   describe "when password_confirmation is not present" do
     before { user.password_confirmation = "" }
+    it { should_not be_valid }
+  end
+
+  describe "when password does not match password_confirmation" do
+    before { user.password_confirmation = "NOtAmatch" }
     it { should_not be_valid }
   end
 
