@@ -22,50 +22,76 @@ require 'spec_helper'
 
 describe User do
 
-  let(:user) { FactoryGirl.create(:user) }
+  before { @user = User.new(name: "Example User", email: "user@example.com",
+                            password: "foobar", password_confirmation: "foobar") }
 
-  subject { user }
+  subject { @user }
 
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:list_item_for_sale) }
+  it { should respond_to(:items_for_sale) }
+  it { should respond_to(:items_sold) }
+  it { should respond_to(:purchased_items) }
 
   it { should be_valid }
 
   describe "when name is not present" do
-    before { user.name = "" }
+    before { @user.name = "" }
     it { should_not be_valid }
   end
 
   describe "when name is too long" do
-    before { user.name = "a" * 51 }
+    before { @user.name = "a" * 51 }
     it { should_not be_valid }
   end
 
   describe "when email is not present" do
-    before { user.email = "" }
+    before { @user.email = "" }
     it { should_not be_valid }
   end
 
   describe "when email is not valid" do
-    before { user.email = "biff.com" }
+    before { @user.email = "biff.com" }
     it { should_not be_valid }
   end
 
   describe "when password is not present" do
-    before { user.password = "" }
+    before { @user.password = "" }
     it { should_not be_valid }
   end
 
   describe "when password_confirmation is not present" do
-    before { user.password_confirmation = "" }
+    before { @user.password_confirmation = "" }
     it { should_not be_valid }
   end
 
   describe "when password does not match password_confirmation" do
-    before { user.password_confirmation = "NOtAmatch" }
+    before { @user.password_confirmation = "NOtAmatch" }
     it { should_not be_valid }
+  end
+
+  describe "item associations" do
+    before { @user.save }
+    let(:item_name) { "A Great Item" }
+    let(:item_description) { "Really super cool!" }
+    let(:item_price) { "4.93" }
+
+    describe "list an item for sale" do
+      before do
+        @user.items.create(name: item_name, description: item_description, price: item_price)
+      end
+
+      let(:listed_item) { @user.items_for_sale.first }
+
+      it "listed_item matches items_for_sale" do
+        listed_item.name.should == item_name
+        listed_item.description.should == item_description
+        listed_item.price.to_s.should == item_price
+      end
+    end
   end
 
 end

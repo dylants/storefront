@@ -29,5 +29,19 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
 
+  has_many :items
+  has_many :orders_sold, foreign_key: "seller_id", class_name: "Order"
+  has_many :items_sold, through: :orders_sold, source: :item
+  has_many :orders_purchased, foreign_key: "buyer_id", class_name: "Order"
+  has_many :purchased_items, through: :orders_purchased, source: :item
+
   validates :name, presence: true, length: { :maximum => 50 }
+
+  def list_item_for_sale(item)
+    self.items.create!(name: item.name, description: item.description, price: item.price)
+  end
+
+  def items_for_sale
+    self.items.all - self.items_sold
+  end
 end

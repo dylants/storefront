@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe "ItemPages" do
+  let(:user) { FactoryGirl.create(:user) }
+
+  before do
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email",    with: user.email
+    fill_in "Password", with: user.password
+    click_button "Sign In"
+  end
+
   subject { page }
 
   describe "item index page" do
