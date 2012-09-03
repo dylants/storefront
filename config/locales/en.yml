@@ -23,6 +23,9 @@ en:
       site_heading: "Welcome to Biff's House of Tacos!"
       site_description: "Where the taco meat can't be beat!"
   items:
+    edit:
+      title: "Edit %{item_name}"
+      submit: "Edit Taco"
     index:
       title: "All Tacos"
     new:

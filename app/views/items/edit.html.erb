@@ -1,0 +1,10 @@
+<% provide(:title, t('.title', :item_name => @item.name)) %>
+
+<h2><%= t '.title', :item_name => @item.name %></h2>
+
+<div>
+  <%= simple_form_for(@item, :html => { :class => 'form-horizontal' }) do |f| %>
+    <%= render 'fields', f: f %>
+    <%= f.submit t('.submit'), :class => 'btn btn-inverse' %>
+  <% end %>
+</div>

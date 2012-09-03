@@ -17,11 +17,7 @@ describe "Authentication" do
     before { click_link "Sign In" }
 
     describe "login succeed" do
-      before do
-        fill_in "Email",    with: user.email
-        fill_in "Password", with: user.password
-        click_button "Sign In"
-      end
+      before { sign_in user }
 
       it { should have_content("Sign Out") }
     end
