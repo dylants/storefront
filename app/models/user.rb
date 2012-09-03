@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   has_many :orders_sold, foreign_key: "seller_id", class_name: "Order"
   has_many :items_sold, through: :orders_sold, source: :item
   has_many :orders_purchased, foreign_key: "buyer_id", class_name: "Order"
-  has_many :purchased_items, through: :orders_purchased, source: :item
+  has_many :items_purchased, through: :orders_purchased, source: :item
 
   validates :name, presence: true, length: { :maximum => 50 }
 

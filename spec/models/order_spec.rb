@@ -32,6 +32,10 @@ describe Order do
       it "verify items_for_sale includes listed item" do
         seller.items_for_sale.should include listed_item
       end
+
+      it "verify items_purchased does not include listed item" do
+        buyer.items_purchased.should_not include listed_item
+      end
     end
 
     describe "after buying an item" do
@@ -43,6 +47,10 @@ describe Order do
 
       it "verify items_for_sale increases after buy item" do
         seller.items_for_sale.should_not include listed_item
+      end
+
+      it "verify items_purchased includes listed item" do
+        buyer.items_purchased.should include listed_item
       end
     end
 

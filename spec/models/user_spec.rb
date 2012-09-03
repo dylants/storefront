@@ -34,7 +34,7 @@ describe User do
   it { should respond_to(:list_item_for_sale) }
   it { should respond_to(:items_for_sale) }
   it { should respond_to(:items_sold) }
-  it { should respond_to(:purchased_items) }
+  it { should respond_to(:items_purchased) }
 
   it { should be_valid }
 
