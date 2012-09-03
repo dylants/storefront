@@ -43,6 +43,19 @@ Spork.prefork do
     # the seed, which is printed after each run.
     #     --seed 1234
     config.order = "random"
+
+    # Use database_cleaner to clean up the test data after execution
+    # (even though the use_transactional_fixtures is supposed to do this, it does not)
+    config.before(:suite) do
+      DatabaseCleaner.strategy = :transaction
+      DatabaseCleaner.clean_with(:truncation)
+    end
+    config.before(:each) do
+      DatabaseCleaner.start
+    end
+    config.after(:each) do
+      DatabaseCleaner.clean
+    end
   end
 end
 
