@@ -3,6 +3,12 @@
 
 en:
   site_name: "Biff's House of Tacos"
+  dashboard:
+    index:
+      title: "Taco Dashboard"
+      items_for_sale: "Tacos for sale"
+      items_sold: "Tacos sold"
+      items_purchased: "Tacos purchased"
   devise:
     registrations:
       new:
@@ -35,6 +41,16 @@ en:
     header:
       home: "Home"
       items: "Tacos"
+      dashboard: "Dashboard"
+      profile: "Profile"
       sign_in: "Sign In"
       sign_out: "Sign Out"
       register: "Register"
+  profile:
+    index:
+      title: "Profile"
+      profile_for: "Profile for %{user_name}"
+      email_address: "Email address"
+      edit_email_address: "Edit email address"
+      password: "Password"
+      edit_password: "Edit password"

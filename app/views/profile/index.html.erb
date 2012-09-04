@@ -1,0 +1,19 @@
+<% provide(:title, t('.title')) %>
+
+<h2><%= t '.profile_for', user_name: current_user.name %></h2>
+
+<div>
+  <label>
+    <%= t '.email_address' %>
+    <input value="<%= current_user.email %>" id="email_address" disabled="true"/>
+    <a href="#"><%= t '.edit_email_address' %></a>
+  </label>
+</div>
+
+<div>
+  <label>
+    <%= t '.password' %>
+    <input value="********" id="email_address" disabled="true"/>
+    <a href="#"><%= t '.edit_password' %></a>
+  </label>
+</div>

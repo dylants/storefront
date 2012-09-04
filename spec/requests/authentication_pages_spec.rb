@@ -7,8 +7,10 @@ describe "Authentication" do
   before { visit root_path }
 
   describe "before logging in" do
-    it { should have_content("Sign In") }
-    it { should have_content("Register") }
+    it { should have_link("Sign In") }
+    it { should have_link("Register") }
+    it { should_not have_link("Dashboard") }
+    it { should_not have_link("Profile")}
   end
 
   describe "login" do
@@ -19,7 +21,11 @@ describe "Authentication" do
     describe "login succeed" do
       before { sign_in user }
 
-      it { should have_content("Sign Out") }
+      it { should have_link("Dashboard") }
+      it { should have_link("Profile") }
+      it { should have_link("Sign Out") }
+      it { should_not have_link("Sign In") }
+      it { should_not have_link("Register") }
     end
 
     describe "login fail" do
@@ -30,6 +36,10 @@ describe "Authentication" do
       end
 
       it { should have_content("Invalid email or password") }
+      it { should have_link("Sign In") }
+      it { should have_link("Register") }
+      it { should_not have_link("Dashboard") }
+      it { should_not have_link("Profile")}
     end
   end
 

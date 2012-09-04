@@ -3,5 +3,8 @@ Storefront::Application.routes.draw do
 
   resources :items
 
+  match "/dashboard", to: "dashboard#index"
+  match "/profile", to: "profile#index"
+
   root :to => 'home#index'
 end

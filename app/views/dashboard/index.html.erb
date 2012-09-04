@@ -1,0 +1,18 @@
+<% provide(:title, t('.title')) %>
+
+<h1><%= t '.title' %></h1>
+
+<h3><%= t '.items_for_sale' %></h3>
+<% unless @items_for_sale.empty? %>
+  <%= render @items_for_sale %>
+<% end %>
+
+<h3><%= t '.items_sold' %></h3>
+<% unless @items_sold.empty? %>
+  <%= render @items_sold %>
+<% end %>
+
+<h3><%= t '.items_purchased' %></h3>
+<% unless @items_purchased.empty? %>
+  <%= render @items_purchased %>
+<% end %>
