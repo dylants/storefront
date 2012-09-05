@@ -23,7 +23,9 @@ describe Item do
   it { should respond_to(:name) }
   it { should respond_to(:description) }
   it { should respond_to(:price) }
-  it { should respond_to(:user)}
+  it { should respond_to(:user) }
+  it { should respond_to(:buy_item!) }
+  it { should respond_to(:has_been_purchased?) }
 
   it { should be_valid }
 

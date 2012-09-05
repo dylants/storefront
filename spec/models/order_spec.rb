@@ -36,10 +36,14 @@ describe Order do
       it "verify items_purchased does not include listed item" do
         buyer.items_purchased.should_not include listed_item
       end
+
+      it "verify item shows not purchased" do
+        listed_item.has_been_purchased?.should be_false
+      end
     end
 
     describe "after buying an item" do
-      before { listed_item.buy_item(buyer) }
+      before { listed_item.buy_item!(buyer) }
 
       it "verify items_sold increases after buy item" do
         seller.items_sold.should include listed_item
@@ -52,12 +56,16 @@ describe Order do
       it "verify items_purchased includes listed item" do
         buyer.items_purchased.should include listed_item
       end
+
+      it "verify item shows purchased" do
+        listed_item.has_been_purchased?.should be_true
+      end
     end
 
   end
 
   describe "create new order" do
-    let(:order) { listed_item.buy_item(buyer) }
+    let(:order) { listed_item.buy_item!(buyer) }
 
     subject { order }
 

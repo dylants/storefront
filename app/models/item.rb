@@ -14,7 +14,7 @@
 class Item < ActiveRecord::Base
   attr_accessible :name, :description, :price
 
-  has_many :orders
+  has_one :order
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 50 }
@@ -22,7 +22,11 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01 }
   validates :user_id, presence: true
 
-  def buy_item(buyer)
-    orders.create!(buyer_id: buyer.id, seller_id: user.id)
+  def buy_item!(buyer)
+    Order.create!(buyer_id: buyer.id, seller_id: user.id, item_id: self.id)
+  end
+
+  def has_been_purchased?
+    Order.find_by_item_id(self.id)
   end
 end

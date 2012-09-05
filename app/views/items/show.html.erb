@@ -8,3 +8,13 @@
 <div>
   <%= number_to_currency(@item.price) %>
 </div>
+
+<% if user_signed_in? %>
+  <div id="purchase_form">
+    <% if @item.has_been_purchased? %>
+      <%= render 'purchased' %>
+    <% else %>
+      <%= render 'buy' %>
+    <% end %>
+  </div>
+<% end %>

@@ -29,6 +29,10 @@ en:
       site_heading: "Welcome to Biff's Taco Trade!"
       site_description: "Where the taco meat can't be beat!"
   items:
+    buy:
+      buy_button: "Buy Taco"
+    purchased:
+      purchased_button: "Purchased"
     edit:
       title: "Edit %{item_name}"
       submit: "Edit Taco"

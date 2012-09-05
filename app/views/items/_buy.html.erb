@@ -1,0 +1,4 @@
+<%= form_for(@item.build_order(item_id: @item.id)) do |f| %>
+  <div><%= f.hidden_field :item_id %></div>
+  <%= f.submit t('.buy_button'), class: "btn btn-inverse" %>
+<% end %>
