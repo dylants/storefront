@@ -2,17 +2,25 @@
 
 <h1><%= t '.title' %></h1>
 
-<h3><%= t '.items_for_sale' %></h3>
-<% unless @items_for_sale.empty? %>
-  <%= render @items_for_sale %>
-<% end %>
+<div class="row">
+  <div class="span4">
+    <h3><%= t '.items_for_sale' %></h3>
+    <% if @items_for_sale.any? %>
+      <%= render @items_for_sale %>
+    <% end %>
+  </div>
 
-<h3><%= t '.items_sold' %></h3>
-<% unless @items_sold.empty? %>
-  <%= render @items_sold %>
-<% end %>
+  <div class="span4">
+    <h3><%= t '.items_sold' %></h3>
+    <% if @items_sold.any? %>
+      <%= render @items_sold %>
+    <% end %>
+  </div>
 
-<h3><%= t '.items_purchased' %></h3>
-<% unless @items_purchased.empty? %>
-  <%= render @items_purchased %>
-<% end %>
+  <div class="span4">
+    <h3><%= t '.items_purchased' %></h3>
+    <% if @items_purchased.any? %>
+      <%= render @items_purchased %>
+    <% end %>
+  </div>
+</div>

@@ -2,7 +2,7 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  site_name: "Biff's House of Tacos"
+  site_name: "Biff's Taco Trade"
   dashboard:
     index:
       title: "Taco Dashboard"
@@ -26,7 +26,7 @@ en:
         forgot_password: "Forgot your password?"
   home:
     index:
-      site_heading: "Welcome to Biff's House of Tacos!"
+      site_heading: "Welcome to Biff's Taco Trade!"
       site_description: "Where the taco meat can't be beat!"
   items:
     edit:
