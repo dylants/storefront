@@ -16,14 +16,16 @@ describe Order do
 
   let(:buyer) { FactoryGirl.create(:user) }
   let(:seller) { FactoryGirl.create(:user) }
-  let(:listed_item) do
-    item = FactoryGirl.create(:item)
-    seller.list_item_for_sale(item)
-  end
+  let(:listed_item) { FactoryGirl.create(:item, user: seller) }
 
   describe "buy item scenarios" do
     describe "prior to buying an item" do
-      before { seller.list_item_for_sale(listed_item) }
+      before do
+        # Why must I do this again here?
+        seller.items.create(name: listed_item.name,
+                            description: listed_item.description,
+                            price: listed_item.price)
+      end
 
       it "verify items_sold does not include listed item" do
         seller.items_sold.should_not include listed_item

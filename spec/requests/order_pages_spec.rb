@@ -3,11 +3,9 @@ require 'spec_helper'
 describe "OrderPages" do
   let(:buyer) { FactoryGirl.create(:user) }
   let(:seller) { FactoryGirl.create(:user) }
-  let(:item) { FactoryGirl.create(:item) }
+  let(:item) { FactoryGirl.create(:item, user: seller) }
 
   subject { page }
-
-  before { seller.list_item_for_sale(item) }
 
   describe "can buy an item" do
 

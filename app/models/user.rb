@@ -37,10 +37,6 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true, length: { :maximum => 50 }
 
-  def list_item_for_sale(item)
-    self.items.create!(name: item.name, description: item.description, price: item.price)
-  end
-
   def items_for_sale
     self.items.all - self.items_sold
   end

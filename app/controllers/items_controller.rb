@@ -7,7 +7,8 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    # only show the items still for sale
+    @items = Item.all - Item.joins(:order)
   end
 
   def new

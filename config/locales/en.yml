@@ -37,7 +37,7 @@ en:
       title: "Edit %{item_name}"
       submit: "Edit Taco"
     index:
-      title: "All Tacos"
+      title: "Tacos for Sale"
     new:
       title: "Add Taco"
       submit: "Add Taco"

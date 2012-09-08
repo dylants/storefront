@@ -1,21 +1,39 @@
 require 'spec_helper'
 
 describe "ItemPages" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:buyer) { FactoryGirl.create(:user) }
+  let(:seller) { FactoryGirl.create(:user) }
 
   subject { page }
 
   describe "item index page" do
-    before(:all) { 30.times { FactoryGirl.create(:item) } }
+    before(:all) do
+      # create 10 items, listing them all for sale
+      for i in 1..10
+        FactoryGirl.create(:item, user: seller)
+      end
+
+      # let's buy... 5 of them, so that some are still for sale
+      items = Item.find_all_by_user_id(seller.id)
+      for i in 1..5
+        item = items[i]
+        item.buy_item!(buyer)
+      end
+    end
+
     after(:all)  { Item.delete_all }
 
     before(:each) { visit items_path }
 
-    it { should have_selector('title', text: 'All Tacos')}
+    it { should have_selector('title', text: 'Tacos for Sale') }
 
     it "should list each item" do
       Item.all.each do |item|
-        page.should have_selector('li', text: item.name)
+        if item.has_been_purchased?
+          page.should_not have_selector('li', text: item.name)
+        else
+          page.should have_selector('li', text: item.name)
+        end
       end
     end
   end
@@ -38,7 +56,7 @@ describe "ItemPages" do
     end
 
     describe "authenticated user" do
-      before { sign_in user }
+      before { sign_in seller }
 
       describe "create item" do
         let(:item_name) { "Random New Taco" }
@@ -68,7 +86,7 @@ describe "ItemPages" do
       end
 
       describe "edit item" do
-        let(:item_to_edit) { user.list_item_for_sale(FactoryGirl.create(:item)) }
+        let(:item_to_edit) { FactoryGirl.create(:item, user: seller) }
         before { visit edit_item_path item_to_edit }
 
         it { should have_selector('title', text: item_to_edit.name) }

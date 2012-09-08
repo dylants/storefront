@@ -31,7 +31,6 @@ describe User do
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
-  it { should respond_to(:list_item_for_sale) }
   it { should respond_to(:items_for_sale) }
   it { should respond_to(:items_sold) }
   it { should respond_to(:items_purchased) }

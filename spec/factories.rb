@@ -7,7 +7,7 @@ FactoryGirl.define do
   end
 
   factory :item do
-    name  "iPod 8GB"
+    sequence(:name) { |n| "iPod #{n}GB" }
     description "A brand new iPod still in box"
     price "99.99"
     user
