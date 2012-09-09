@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "OrderPages" do
   let(:buyer) { FactoryGirl.create(:user) }
   let(:seller) { FactoryGirl.create(:user) }
-  let(:item) { FactoryGirl.create(:item, user: seller) }
+  let(:item) { FactoryGirl.create(:item, item_type: "Hot Sauce", user: seller) }
 
   subject { page }
 
@@ -12,7 +12,7 @@ describe "OrderPages" do
     describe "as a non-authenticated user" do
       before { visit item_path(item) }
 
-      it { should_not have_button("Buy Taco") }
+      it { should_not have_button("Buy #{item.item_type}") }
     end
 
     describe "as an authenticated user" do
@@ -21,7 +21,7 @@ describe "OrderPages" do
         visit item_path(item)
       end
 
-      it { should have_button("Buy Taco") }
+      it { should have_button("Buy #{item.item_type}") }
     end
   end
 
@@ -29,7 +29,7 @@ describe "OrderPages" do
     before do
       sign_in buyer
       visit item_path(item)
-      click_button "Buy Taco"
+      click_button "Buy #{item.item_type}"
     end
 
     it { should have_content("Taco Dashboard") }
@@ -38,7 +38,7 @@ describe "OrderPages" do
     # and if you visit the item again, it should say purchased
     it "verify item shows purchased" do
       visit item_path(item)
-      page.should_not have_button("Buy Taco")
+      page.should_not have_button("Buy #{item.item_type}")
     end
   end
 

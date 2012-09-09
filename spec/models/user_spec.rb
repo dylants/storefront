@@ -75,18 +75,23 @@ describe User do
   describe "item associations" do
     before { @user.save }
     let(:item_name) { "A Great Item" }
+    let(:item_type) { "Taco" }
     let(:item_description) { "Really super cool!" }
     let(:item_price) { "4.93" }
 
     describe "list an item for sale" do
       before do
-        @user.items.create(name: item_name, description: item_description, price: item_price)
+        @user.items.create(name: item_name,
+                           item_type: item_type,
+                           description: item_description,
+                           price: item_price)
       end
 
       let(:listed_item) { @user.items_for_sale.first }
 
       it "listed_item matches items_for_sale" do
         listed_item.name.should == item_name
+        listed_item.item_type.should == item_type
         listed_item.description.should == item_description
         listed_item.price.to_s.should == item_price
       end

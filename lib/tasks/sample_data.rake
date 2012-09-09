@@ -23,9 +23,11 @@ def make_items
   users.each do |user|
     10.times do |n|
       name = Faker::Lorem.words(2).join(" ")
+      item_type = ["Taco", "Hot Sauce", "Chips"].sample
       description = Faker::Lorem.sentence(2)
-      price  = rand(99) + rand().round(2)
-      user.items.create!(name: name, description: description, price: price)
+      price  = rand(9) + rand().round(2)
+      user.items.create!(name: name, item_type: item_type,
+                         description: description, price: price)
     end
   end
 end

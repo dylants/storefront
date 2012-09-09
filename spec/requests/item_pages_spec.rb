@@ -25,7 +25,7 @@ describe "ItemPages" do
 
     before(:each) { visit items_path }
 
-    it { should have_selector('title', text: 'Tacos for Sale') }
+    it { should have_selector('title', text: 'Taco Trade Items for Sale') }
 
     it "should list each item" do
       Item.all.each do |item|
@@ -44,6 +44,7 @@ describe "ItemPages" do
 
     it { should have_selector('title', text: item.name) }
     it { should have_selector('h2', text: item.name) }
+    it { should have_content(item.item_type) }
     it { should have_content(item.description) }
     it { should have_content(item.price) }
   end
@@ -59,14 +60,16 @@ describe "ItemPages" do
       before { sign_in seller }
 
       describe "create item" do
-        let(:item_name) { "Random New Taco" }
-        let(:item_description) { "This is the random description of the taco" }
+        let(:item_name) { "Random New Taco Hot Sauce" }
+        let(:item_type) { "Hot Sauce" }
+        let(:item_description) { "This is the random description of the item" }
         let(:item_price) { "2.99" }
         let(:submit) { "Add" }
 
         before do
           visit new_item_path
           fill_in "Name", with: item_name
+          select item_type, from: "item_item_type"
           fill_in "Description", with: item_description
           fill_in "Price", with: item_price
         end
@@ -80,6 +83,7 @@ describe "ItemPages" do
 
           it { should have_selector('title', text: item_name) }
           it { should have_selector('h2', text: item_name) }
+          it { should have_content(item_type) }
           it { should have_content(item_description) }
           it { should have_content(item_price) }
         end

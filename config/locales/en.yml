@@ -30,17 +30,17 @@ en:
       site_description: "Where the taco meat can't be beat!"
   items:
     buy:
-      buy_button: "Buy Taco"
+      buy_button: "Buy %{item_type}"
     purchased:
       purchased_button: "Purchased"
     edit:
       title: "Edit %{item_name}"
-      submit: "Edit Taco"
+      submit: "Edit %{item_type}"
     index:
-      title: "Tacos for Sale"
+      title: "Taco Trade Items for Sale"
     new:
-      title: "Add Taco"
-      submit: "Add Taco"
+      title: "Add Item"
+      submit: "Add Item"
   layouts:
     header:
       home: "Home"

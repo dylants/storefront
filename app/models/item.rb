@@ -9,15 +9,17 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  user_id     :integer
+#  item_type   :string(255)
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :name, :description, :price
+  attr_accessible :name, :item_type, :description, :price
 
   has_one :order
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 50 }
+  validates :item_type, presence: true, inclusion: { in: [ "Taco", "Hot Sauce", "Chips" ] }
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01 }
   validates :user_id, presence: true

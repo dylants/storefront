@@ -7,9 +7,10 @@ FactoryGirl.define do
   end
 
   factory :item do
-    sequence(:name) { |n| "iPod #{n}GB" }
-    description "A brand new iPod still in box"
-    price "99.99"
+    sequence(:name) { |n| "Taco Thing ##{n}" }
+    item_type ["Taco", "Hot Sauce", "Chips"].sample
+    description "A really tasty taco thingamagig"
+    price "3.99"
     user
   end
 end
