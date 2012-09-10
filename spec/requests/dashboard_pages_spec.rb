@@ -11,10 +11,10 @@ describe "DashboardPages" do
   end
 
   describe "dashboard overview" do
-    it { should have_content("Taco Dashboard") }
-    it { should have_content("Tacos for sale") }
-    it { should have_content("Tacos sold") }
-    it { should have_content("Tacos purchased") }
+    it { should have_content("Taco Trade Dashboard") }
+    it { should have_content("Items for sale") }
+    it { should have_content("Items sold") }
+    it { should have_content("Items purchased") }
   end
 
 end

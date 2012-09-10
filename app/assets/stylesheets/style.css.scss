@@ -2,4 +2,13 @@
 
 body {
   padding: 60px;
+  background-image: image-url("bg.png");
+}
+
+.dashboard_items {
+  list-style: none;
+}
+
+.well {
+  background-color: #ECECEC;
 }

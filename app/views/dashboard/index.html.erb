@@ -2,25 +2,25 @@
 
 <h1><%= t '.title' %></h1>
 
-<div class="row">
+<div class="row dashboard_items well">
   <div class="span4">
     <h3><%= t '.items_for_sale' %></h3>
-    <% if @items_for_sale.any? %>
-      <%= render @items_for_sale %>
+    <% if current_user.items_for_sale.any? %>
+      <%= render current_user.items_for_sale %>
     <% end %>
   </div>
 
   <div class="span4">
     <h3><%= t '.items_sold' %></h3>
-    <% if @items_sold.any? %>
-      <%= render @items_sold %>
+    <% if current_user.items_sold.any? %>
+      <%= render current_user.items_sold %>
     <% end %>
   </div>
 
   <div class="span4">
     <h3><%= t '.items_purchased' %></h3>
-    <% if @items_purchased.any? %>
-      <%= render @items_purchased %>
+    <% if current_user.items_purchased.any? %>
+      <%= render current_user.items_purchased %>
     <% end %>
   </div>
 </div>

@@ -32,7 +32,7 @@ describe "OrderPages" do
       click_button "Buy #{item.item_type}"
     end
 
-    it { should have_content("Taco Dashboard") }
+    it { should have_content("Taco Trade Dashboard") }
     it { should have_content("You have successfully purchased the #{item.name}!") }
 
     # and if you visit the item again, it should say purchased

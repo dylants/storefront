@@ -2,13 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  site_name: "Biff's Taco Trade"
+  site_name: "Taco Trade"
   dashboard:
     index:
-      title: "Taco Dashboard"
-      items_for_sale: "Tacos for sale"
-      items_sold: "Tacos sold"
-      items_purchased: "Tacos purchased"
+      title: "Taco Trade Dashboard"
+      items_for_sale: "Items for sale"
+      items_sold: "Items sold"
+      items_purchased: "Items purchased"
   devise:
     registrations:
       new:
@@ -26,7 +26,7 @@ en:
         forgot_password: "Forgot your password?"
   home:
     index:
-      site_heading: "Welcome to Biff's Taco Trade!"
+      site_heading: "Welcome to the Taco Trade!"
       site_description: "Where the taco meat can't be beat!"
   items:
     buy:
