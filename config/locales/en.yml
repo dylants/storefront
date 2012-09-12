@@ -37,7 +37,7 @@ en:
       title: "Edit %{item_name}"
       submit: "Edit %{item_type}"
     index:
-      title: "Taco Trade Items for Sale"
+      title: "All Items for Sale"
     new:
       title: "Add Item"
       submit: "Add Item"

@@ -2,7 +2,14 @@
 
 body {
   padding: 60px;
-  background-image: image-url("bg.png");
+  background-color: #DFDFDF;
+}
+
+#container {
+  max-width: 540px;
+  margin: 0px auto;
+  position: relative;
+
 }
 
 .dashboard_items {
@@ -10,5 +17,5 @@ body {
 }
 
 .well {
-  background-color: #ECECEC;
+  background-color: #E9E9E9;
 }

@@ -25,7 +25,7 @@ describe "ItemPages" do
 
     before(:each) { visit items_path }
 
-    it { should have_selector('title', text: 'Taco Trade Items for Sale') }
+    it { should have_selector('title', text: 'All Items for Sale') }
 
     it "should list each item" do
       Item.all.each do |item|
