@@ -23,6 +23,7 @@ describe Order do
       before do
         # Why must I do this again here?
         seller.items.create(name: listed_item.name,
+                            item_type: listed_item.item_type,
                             description: listed_item.description,
                             price: listed_item.price)
       end

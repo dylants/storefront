@@ -18,7 +18,7 @@ describe Item do
 
   let(:user) { FactoryGirl.create(:user) }
   before { @item = user.items.build(name: "a name",
-                                    item_type: "Taco",
+                                    item_type: Item.taco,
                                     description: "something",
                                     price: "4.99") }
 
@@ -46,7 +46,7 @@ describe Item do
 
   describe "when item_type is one of the valid types" do
     it "should be valid" do
-      valid_types = [ "Taco", "Hot Sauce", "Chips" ]
+      valid_types = [ Item.taco, Item.hot_sauce, Item.chips ]
       valid_types.each do |valid_type|
         @item.item_type = valid_type
         @item.should be_valid

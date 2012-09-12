@@ -1,5 +1,30 @@
 <% provide(:title, t('.title')) %>
 
-<h1><%= t '.title' %></h1>
+<div class="row trade_items well">
 
-<%= render @items %>
+  <h1><%= t '.title' %></h1>
+  <p><%= t '.description' %></p>
+  <hr>
+
+  <div class="span4">
+    <h3><%= t '.tacos_for_sale' %></h3>
+    <div class="trade_item">
+      <%= render @tacos %>
+    </div>
+  </div>
+
+  <div class="span4">
+    <h3><%= t '.hot_sauce_for_sale' %></h3>
+    <div class="trade_item">
+      <%= render @hot_sauces %>
+    </div>
+  </div>
+
+  <div class="span4">
+    <h3><%= t '.chips_for_sale' %></h3>
+    <div class="trade_item">
+      <%= render @chips %>
+    </div>
+  </div>
+
+</div>

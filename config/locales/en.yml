@@ -3,12 +3,15 @@
 
 en:
   site_name: "Taco Trade"
+  taco: "Taco"
+  hot_sauce: "Hot Sauce"
+  chips: "Chips"
   dashboard:
     index:
-      title: "Taco Trade Dashboard"
-      items_for_sale: "Items for sale"
-      items_sold: "Items sold"
-      items_purchased: "Items purchased"
+      title: "Transaction Dashboard"
+      items_for_sale: "Items for Sale"
+      items_sold: "Items Sold"
+      items_purchased: "Items Purchased"
   devise:
     registrations:
       new:
@@ -36,15 +39,21 @@ en:
     edit:
       title: "Edit %{item_name}"
       submit: "Edit %{item_type}"
+    fields:
+      type: "Type"
     index:
-      title: "All Items for Sale"
+      title: "Trade"
+      description: "Purchase items on the Taco Trade!"
+      tacos_for_sale: "Tacos"
+      hot_sauce_for_sale: "Hot Sauce"
+      chips_for_sale: "Chips"
     new:
       title: "Add Item"
       submit: "Add Item"
   layouts:
     header:
       home: "Home"
-      items: "Tacos"
+      items: "Trade"
       dashboard: "Dashboard"
       profile: "Profile"
       sign_in: "Sign In"

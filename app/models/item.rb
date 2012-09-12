@@ -19,7 +19,7 @@ class Item < ActiveRecord::Base
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :item_type, presence: true, inclusion: { in: [ "Taco", "Hot Sauce", "Chips" ] }
+  validates :item_type, presence: true, inclusion: { in: %w{taco hot_sauce chips} }
   validates :description, presence: true
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01 }
   validates :user_id, presence: true
@@ -30,5 +30,30 @@ class Item < ActiveRecord::Base
 
   def has_been_purchased?
     Order.find_by_item_id(self.id)
+  end
+
+  def self.all_for_sale(item_type)
+    Item.find_all_by_item_type(item_type) - Item.joins(:order)
+  end
+
+  def self.derive_item_type_from_content(content_item_type)
+    if I18n.t(taco) == content_item_type
+      taco
+    elsif I18n.t(hot_sauce) == content_item_type
+      hot_sauce
+    else
+      chips
+    end
+  end
+
+  # our "enums" for item type
+  def self.taco
+    'taco'
+  end
+  def self.hot_sauce
+    'hot_sauce'
+  end
+  def self.chips
+    'chips'
   end
 end

@@ -75,7 +75,7 @@ describe User do
   describe "item associations" do
     before { @user.save }
     let(:item_name) { "A Great Item" }
-    let(:item_type) { "Taco" }
+    let(:item_type) { Item.taco }
     let(:item_description) { "Really super cool!" }
     let(:item_price) { "4.93" }
 

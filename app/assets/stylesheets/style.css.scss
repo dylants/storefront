@@ -1,19 +1,29 @@
 @import "bootstrap";
+@import "_bootstrap-responsive.scss";
 
 body {
   padding: 60px;
   background-color: #DFDFDF;
 }
 
-#container {
-  max-width: 540px;
-  margin: 0px auto;
-  position: relative;
-
+p {
+  font-size: larger;
 }
 
 .dashboard_items {
   list-style: none;
+  text-align: center;
+  .dashboard_item {
+    text-align: left;
+  }
+}
+
+.trade_items {
+  list-style: none;
+  text-align: center;
+  .trade_item {
+    text-align: left;
+  }
 }
 
 .well {

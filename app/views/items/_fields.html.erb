@@ -1,7 +1,7 @@
 <%= f.input :name %>
 <%= f.input :item_type,
-            :label => "Type",
-            :collection => ["Taco", "Hot Sauce", "Chips"],
+            :label => t('.type'),
+            :collection => [t('taco'), t('hot_sauce'), t('chips')],
             :include_blank => false %>
 <%= f.input :description, :input_html => { :rows => 3 } %>
 <%= f.input :price %>
