@@ -2,28 +2,32 @@
 
 <div class="row trade_items well">
 
-  <h1><%= t '.title' %></h1>
-  <p><%= t '.description' %></p>
-  <hr>
+  <div class="span12">
+    <%= image_tag("trade.png", :alt => t('.title')) %>
+    <p><%= t '.description' %></p>
+    <hr>
 
-  <div class="span4">
-    <h3><%= t '.tacos_for_sale' %></h3>
-    <div class="trade_item">
-      <%= render @tacos %>
-    </div>
-  </div>
+    <div class="row">
+      <div class="trade_sidebar span3 hidden-phone">
+        <h3>Sidebar</h3>
+        <h4><a href="#tacos"><%= t '.tacos_for_sale' %></a></h4>
+        <h4><a href="#hotsauce"><%= t '.hot_sauce_for_sale' %></a></h4>
+        <h4><a href="#chips"><%= t '.chips_for_sale' %></a></h4>
+      </div>
 
-  <div class="span4">
-    <h3><%= t '.hot_sauce_for_sale' %></h3>
-    <div class="trade_item">
-      <%= render @hot_sauces %>
-    </div>
-  </div>
+      <div class="span9">
+        <h1 class="trade_heading"><a name="tacos"><%= t '.tacos_for_sale' %></a></h1>
+        <hr>
+        <%= render @tacos %>
 
-  <div class="span4">
-    <h3><%= t '.chips_for_sale' %></h3>
-    <div class="trade_item">
-      <%= render @chips %>
+        <h1 class="trade_heading"><a name="hotsauce"><%= t '.hot_sauce_for_sale' %></a></h1>
+        <hr>
+        <%= render @hot_sauces %>
+
+        <h1 class="trade_heading"><a name="chips"><%= t '.chips_for_sale' %></a></h1>
+        <hr>
+        <%= render @chips %>
+      </div>
     </div>
   </div>
 

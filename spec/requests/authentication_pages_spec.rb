@@ -19,7 +19,11 @@ describe "Authentication" do
     before { click_link "Sign In" }
 
     describe "login succeed" do
-      before { sign_in user }
+      before do
+        sign_in user
+        # navigate to something other than home page
+        visit items_path
+      end
 
       it { should have_link("Dashboard") }
       it { should have_link("Profile") }

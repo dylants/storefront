@@ -1,3 +1,5 @@
-<li>
-  <%= link_to item.name, item %>
-</li>
+<% items.each do |item| %>
+  <li>
+    <%= link_to item.name, item %>
+  </li>
+<% end %>

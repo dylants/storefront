@@ -26,11 +26,11 @@ describe "ItemPages" do
     before(:each) { visit items_path }
 
     it { should have_selector('title', text: I18n.t('items.index.title')) }
-    it { should have_selector('h1', text: I18n.t('items.index.title')) }
+    it { should have_selector('img', alt: I18n.t('items.index.title')) }
     it { should have_selector('p', text: I18n.t('items.index.description')) }
-    it { should have_selector('h3', text: I18n.t('items.index.tacos_for_sale')) }
-    it { should have_selector('h3', text: I18n.t('items.index.hot_sauce_for_sale')) }
-    it { should have_selector('h3', text: I18n.t('items.index.chips_for_sale')) }
+    it { should have_selector('h1', text: I18n.t('items.index.tacos_for_sale')) }
+    it { should have_selector('h1', text: I18n.t('items.index.hot_sauce_for_sale')) }
+    it { should have_selector('h1', text: I18n.t('items.index.chips_for_sale')) }
 
     it "should list each item" do
       Item.all.each do |item|

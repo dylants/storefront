@@ -2,12 +2,47 @@
 @import "_bootstrap-responsive.scss";
 
 body {
+  font-family: "Arial","Helvetica",sans-serif;
   padding: 60px;
   background-color: #DFDFDF;
 }
 
 p {
   font-size: larger;
+}
+
+.home {
+  text-align: center;
+  p {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  a {
+    margin: 10px;
+    width: 20%;
+  }
+  .center_panel {
+    margin: 0px auto;
+    max-width: 540px;
+  }
+}
+
+.heading {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: xx-large;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.new_session {
+  text-align: center;
+  .center_panel {
+    margin: 0px auto;
+    max-width: 340px;
+  }
+  .sign_in {
+    text-align: left;
+  }
 }
 
 .dashboard_items {
@@ -21,11 +56,55 @@ p {
 .trade_items {
   list-style: none;
   text-align: center;
-  .trade_item {
+  p {
+    padding-top: 20px;
+  }
+  .trade_sidebar {
     text-align: left;
+  }
+  .trade_heading {
+    padding-top: 20px;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:link {
+      text-decoration: none;
+      color: black;
+    }
+    a:visited {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      text-decoration: none;
+      color: black;
+    }
+    a:active {
+      text-decoration: none;
+      color: black;
+    }
+  }
+  .trade_item {
+    background-color: #F0F0F0;
+    text-align: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    .seller {
+      color: #989898;
+      padding-top: 5px;
+    }
+    .created_at {
+      text-align: right;
+    }
+    .price {
+      text-align: right;
+      color: #228b22;
+    }
   }
 }
 
 .well {
+  margin-left: 0px;
   background-color: #E9E9E9;
 }

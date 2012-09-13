@@ -6,9 +6,13 @@ describe "HomePages" do
   describe "Home Page" do
     before { visit root_path }
 
-    it { should have_selector('title', text: "Taco Trade") }
-    it { should have_selector('h1', text: "Welcome to the Taco Trade!") }
-    it { should have_content("Where the taco meat can't be beat!") }
+    it { should have_selector('title', text: I18n.t('site_name')) }
+    it { should have_selector('img', alt: I18n.t('home.index.site_heading')) }
+    it { should have_content(I18n.t('home.index.site_description')) }
+    it { should have_content(I18n.t('home.index.site_instructions')) }
+    it { should have_link(I18n.t('home.index.view')) }
+    it { should have_link(I18n.t('home.index.sign_in')) }
+    it { should have_link(I18n.t('home.index.register')) }
   end
 
 end

@@ -1,3 +1,18 @@
-<li>
-  <%= link_to item.name, item %>
-</li>
+<div class="row trade_item well">
+  <li>
+    <div class="span4 name">
+      <h3><%= link_to item.name, item %></h3>
+      <br>
+      <%= item.description %>
+      <div class="seller">
+        <%= item.user.name %>
+      </div>
+    </div>
+    <div class="span2 created_at">
+      <%= item.created_at.strftime("%b %d, %Y") %>
+    </div>
+    <div class="span2 price">
+      <h4><%= number_to_currency(item.price) %></h4>
+    </div>
+  </li>
+</div>

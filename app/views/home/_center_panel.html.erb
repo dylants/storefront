@@ -1,0 +1,26 @@
+<%= image_tag("tacotrade.png", :alt => t('home.index.site_heading')) %>
+<p>
+  <%= t 'home.index.site_description' %>
+  <br><br>
+  <% if user_signed_in? %>
+    <%= t 'home.index.site_return_instructions' %>
+  <% else %>
+    <%= t 'home.index.site_instructions' %>
+  <% end %>
+</p>
+
+<%= link_to t('home.index.view'),
+            items_path,
+            :class => "btn btn-large btn-primary" %>
+<% if user_signed_in? %>
+  <%= link_to t('home.index.dashboard'),
+              dashboard_path,
+              :class => "btn btn-large btn-primary" %>
+<% else %>
+  <%= link_to t('home.index.sign_in'),
+              new_user_session_path,
+              :class => "btn btn-large btn-primary" %>
+  <%= link_to t('home.index.register'),
+              new_user_registration_path,
+              :class => "btn btn-large btn-primary" %>
+<% end %>

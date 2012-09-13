@@ -1,15 +1,14 @@
 <% provide(:title, t('.title')) %>
 
 <div class="row dashboard_items well">
-  <h1><%= t '.title' %></h1>
-
+  <%= image_tag("dashboard.png", :alt => t('.title')) %>
   <hr>
 
   <div class="span4 dashboard_header">
     <h3><%= t '.items_purchased' %></h3>
     <div class="dashboard_item">
       <% if current_user.items_purchased.any? %>
-        <%= render current_user.items_purchased %>
+        <%= render 'dashboard/item', items: current_user.items_purchased %>
       <% end %>
     </div>
   </div>
@@ -18,7 +17,7 @@
     <h3><%= t '.items_for_sale' %></h3>
     <div class="dashboard_item">
       <% if current_user.items_for_sale.any? %>
-        <%= render current_user.items_for_sale %>
+        <%= render 'dashboard/item', items: current_user.items_for_sale %>
       <% end %>
     </div>
   </div>
@@ -27,7 +26,7 @@
     <h3><%= t '.items_sold' %></h3>
     <div class="dashboard_item">
       <% if current_user.items_sold.any? %>
-        <%= render current_user.items_sold %>
+        <%= render 'dashboard/item', items: current_user.items_sold %>
       <% end %>
     </div>
   </div>

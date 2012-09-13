@@ -29,8 +29,16 @@ en:
         forgot_password: "Forgot your password?"
   home:
     index:
-      site_heading: "Welcome to the Taco Trade!"
-      site_description: "Where the taco meat can't be beat!"
+      site_heading: "Taco Trade"
+      site_description: "Welcome to the Taco Trade! Where the taco meat can't be beat!"
+      site_instructions: "Click the buttons below to begin. You can view the Taco Trade,
+        sign in as an existing user, or register to start trading."
+      site_return_instructions: "Let's move some tacos! Click on the buttons below to
+        view the Taco Trade or view your Taco Dashboard."
+      view: "Trade"
+      sign_in: "Sign In"
+      register: "Register"
+      dashboard: "Dashboard"
   items:
     buy:
       buy_button: "Buy %{item_type}"
@@ -43,7 +51,7 @@ en:
       type: "Type"
     index:
       title: "Trade"
-      description: "Purchase items on the Taco Trade!"
+      description: "Buy it on the Taco Trade!"
       tacos_for_sale: "Tacos"
       hot_sauce_for_sale: "Hot Sauce"
       chips_for_sale: "Chips"

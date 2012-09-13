@@ -1,4 +1,11 @@
-<div class="well home">
-  <h1><%= t '.site_heading' %></h1>
-  <p><%= t '.site_description' %></p>
+<div class="home">
+  <!--Mobile vs Tablet/Desktop differences, both include center panel -->
+  <div class="row visible-phone">
+    <div class="span4 offset4 well">
+      <%= render 'center_panel' %>
+    </div>
+  </div>
+  <div class="well center_panel hidden-phone">
+    <%= render 'center_panel' %>
+  </div>
 </div>
