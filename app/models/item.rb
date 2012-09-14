@@ -27,8 +27,8 @@ class Item < ActiveRecord::Base
   # Tire/elasticsearch configuration
   include Tire::Model::Search
   include Tire::Model::Callbacks
-  # it's a good idea to provide an index per environment to avoid test breaking dev
-  index_name("#{Rails.env}-#{Rails.application.class.to_s.downcase}-items")
+  # this index is defined in the elasticsearch.rb
+  index_name ELASTICSEARCH_INDEX_NAME
 
   def buy_item!(buyer)
     Order.create!(buyer_id: buyer.id, seller_id: user.id, item_id: self.id)
