@@ -16,17 +16,27 @@
       </div>
 
       <div class="span9">
-        <h1 class="trade_heading"><a name="tacos"><%= t '.tacos_for_sale' %></a></h1>
-        <hr>
-        <%= render @tacos %>
+        <% if @tacos.empty? && @hot_sauces.empty? && @chips.empty? %>
+          <h1 class="trade_heading"><%= t '.no_items_found' %></h1>
+        <% else %>
+          <% if @tacos.any? %>
+            <h1 class="trade_heading"><a name="tacos"><%= t '.tacos_for_sale' %></a></h1>
+            <hr>
+            <%= render @tacos %>
+          <% end %>
 
-        <h1 class="trade_heading"><a name="hotsauce"><%= t '.hot_sauce_for_sale' %></a></h1>
-        <hr>
-        <%= render @hot_sauces %>
+          <% if @hot_sauces.any? %>
+            <h1 class="trade_heading"><a name="hotsauce"><%= t '.hot_sauce_for_sale' %></a></h1>
+            <hr>
+            <%= render @hot_sauces %>
+          <% end %>
 
-        <h1 class="trade_heading"><a name="chips"><%= t '.chips_for_sale' %></a></h1>
-        <hr>
-        <%= render @chips %>
+          <% if @chips.any? %>
+            <h1 class="trade_heading"><a name="chips"><%= t '.chips_for_sale' %></a></h1>
+            <hr>
+            <%= render @chips %>
+          <% end %>
+        <% end %>
       </div>
     </div>
   </div>

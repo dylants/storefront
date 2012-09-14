@@ -55,6 +55,9 @@ Spork.prefork do
     end
     config.after(:each) do
       DatabaseCleaner.clean
+      # Since we clear the database, also clear up the elasticsearch index
+      Item.tire.index.delete
+      Item.tire.create_elasticsearch_index
     end
   end
 end

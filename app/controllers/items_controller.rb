@@ -7,10 +7,30 @@ class ItemsController < ApplicationController
   end
 
   def index
-    # gather the item types, and only show the items still for sale
-    @tacos = Item.all_for_sale(Item.taco)
-    @hot_sauces = Item.all_for_sale(Item.hot_sauce)
-    @chips = Item.all_for_sale(Item.chips)
+    if params[:query].present?
+      # TODO really need to refactor this code
+      @tacos = []
+      @hot_sauces = []
+      @chips = []
+      all_items = Item.search(params[:query], load: true)
+      all_items.each do |item|
+        # for each item, check the type and make sure it's still for sale (no order)
+        if (item.item_type == Item.taco) && (item.order.nil?)
+          @tacos << item
+        end
+        if (item.item_type == Item.hot_sauce) && (item.order.nil?)
+          @hot_sauces << item
+        end
+        if (item.item_type == Item.chips) && (item.order.nil?)
+          @chips << item
+        end
+      end
+    else
+      # gather the item types, and only show the items still for sale
+      @tacos = Item.all_for_sale(Item.taco)
+      @hot_sauces = Item.all_for_sale(Item.hot_sauce)
+      @chips = Item.all_for_sale(Item.chips)
+    end
   end
 
   def new

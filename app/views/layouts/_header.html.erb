@@ -9,17 +9,25 @@
       <%= link_to t('site_name'), root_path, class: "brand" %>
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><%= link_to t('.home'), root_path %></li>
-          <li><%= link_to t('.items'), items_path %></li>
+          <li><%= link_to t('layouts.header.home'), root_path %></li>
+          <li><%= link_to t('layouts.header.items'), items_path %></li>
         </ul>
         <ul class="nav pull-right">
+          <%= form_tag items_path, class: "navbar-search", method: :get do %>
+            <%= text_field_tag :query, params[:query],
+                               class: "search-query",
+                               placeholder: t('layouts.header.search') %>
+            <%= submit_tag t('layouts.header.search'), class: "hidden" %>
+          <% end %>
           <% if user_signed_in? %>
-            <li><%= link_to t('.dashboard'), dashboard_path %></li>
-            <li><%= link_to t('.profile'), profile_path %></li>
-            <li><%= link_to t('.sign_out'), destroy_user_session_path, method: "delete" %></li>
+            <li><%= link_to t('layouts.header.dashboard'), dashboard_path %></li>
+            <li><%= link_to t('layouts.header.profile'), profile_path %></li>
+            <li><%= link_to t('layouts.header.sign_out'),
+                            destroy_user_session_path,
+                            method: "delete" %></li>
           <% else %>
-            <li><%= link_to t('.sign_in'), new_user_session_path %></li>
-            <li><%= link_to t('.register'), new_user_registration_path %></li>
+            <li><%= link_to t('layouts.header.sign_in'), new_user_session_path %></li>
+            <li><%= link_to t('layouts.header.register'), new_user_registration_path %></li>
           <% end %>
         </ul>
       </div>

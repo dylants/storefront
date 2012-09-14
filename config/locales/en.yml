@@ -55,6 +55,7 @@ en:
       tacos_for_sale: "Tacos"
       hot_sauce_for_sale: "Hot Sauce"
       chips_for_sale: "Chips"
+      no_items_found: "No items found"
     new:
       title: "Add Item"
       submit: "Add Item"
@@ -62,6 +63,7 @@ en:
     header:
       home: "Home"
       items: "Trade"
+      search: "Search"
       dashboard: "Dashboard"
       profile: "Profile"
       sign_in: "Sign In"

@@ -24,6 +24,12 @@ class Item < ActiveRecord::Base
   validates :price, presence: true, numericality: { greater_than_or_equal_to: 0.01 }
   validates :user_id, presence: true
 
+  # Tire/elasticsearch configuration
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+  # it's a good idea to provide an index per environment to avoid test breaking dev
+  index_name("#{Rails.env}-#{Rails.application.class.to_s.downcase}-items")
+
   def buy_item!(buyer)
     Order.create!(buyer_id: buyer.id, seller_id: user.id, item_id: self.id)
   end
