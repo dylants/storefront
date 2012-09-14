@@ -1,3 +1,3 @@
 # Storefront #
 
-A mock store written in Rails
+A mock Taco Trade store
