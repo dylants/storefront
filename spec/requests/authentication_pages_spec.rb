@@ -54,11 +54,11 @@ describe "Authentication" do
 
     before { click_link "Register" }
 
-    it { should have_content("Register New User")}
+    it { should have_content("Register")}
 
     describe "new user" do
       before do
-        fill_in "Name",                   with: user_name
+        fill_in "Full name",              with: user_name
         fill_in "Email",                  with: user_email
         fill_in "Password",               with: user_password
         fill_in "Password confirmation",  with: user_password

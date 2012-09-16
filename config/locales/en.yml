@@ -15,8 +15,17 @@ en:
   devise:
     registrations:
       new:
-        title: "Register New User"
+        title: "Register"
+        name_label: "Full name"
         submit: "Register"
+      edit:
+        title: "Edit Profile"
+        heading: "Edit Profile"
+        name_label: "Full name"
+        password_label: "Password (<i>leave blank if you don't want to change it</i>)"
+        current_password_label: "Current password (<i>required to make changes</i>)"
+        submit: "Update"
+        cancel: "Cancel"
     sessions:
       new:
         title: "Sign In"
@@ -63,7 +72,7 @@ en:
     header:
       home: "Home"
       items: "Trade"
-      search: "Search"
+      search: "Search Taco Trade"
       dashboard: "Dashboard"
       profile: "Profile"
       sign_in: "Sign In"
@@ -73,7 +82,3 @@ en:
     index:
       title: "Profile"
       profile_for: "Profile for %{user_name}"
-      email_address: "Email address"
-      edit_email_address: "Edit email address"
-      password: "Password"
-      edit_password: "Edit password"

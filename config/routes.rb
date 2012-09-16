@@ -5,7 +5,6 @@ Storefront::Application.routes.draw do
   resources :orders, only: [:create]
 
   match "/dashboard", to: "dashboard#index"
-  match "/profile", to: "profile#index"
 
   root :to => 'home#index'
 end

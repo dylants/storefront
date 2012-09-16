@@ -36,12 +36,21 @@ p {
 
 .new_session {
   text-align: center;
-  .center_panel {
-    margin: 0px auto;
-    max-width: 340px;
-  }
   .sign_in {
     text-align: left;
+    .email, .password {
+      width: 90%;
+    }
+  }
+}
+
+.registration {
+  text-align: center;
+  .register {
+    text-align: left;
+    .string, .email, .password, .password_confirmation {
+      width: 90%;
+    }
   }
 }
 
@@ -113,4 +122,10 @@ p {
   img {
     height: 23px;
   }
+}
+
+.reset-center {
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
 }
