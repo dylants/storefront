@@ -1,5 +1,5 @@
 # Use Bonsai for our elasticsearch if available
-if ENV['BONSAI_INDEX_URL']
+if ENV['BONSAI_URL']
   Tire.configure do
     url "http://index.bonsai.io"
   end
