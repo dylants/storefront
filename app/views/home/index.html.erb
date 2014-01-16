@@ -1,11 +1,11 @@
 <div class="home">
   <!--Mobile vs Tablet/Desktop differences, both include center panel -->
-  <div class="row visible-phone">
-    <div class="span4 offset4 well">
-      <%= render 'center_panel' %>
+  <div class="row visible-xs">
+    <div class="col-md-4 col-md-offset-4 well">
+      <%= render "center_panel" %>
     </div>
   </div>
-  <div class="well center_panel hidden-phone">
-    <%= render 'center_panel' %>
+  <div class="well center_panel hidden-xs">
+    <%= render "center_panel" %>
   </div>
 </div>

@@ -2,20 +2,20 @@
 
 <div class="row trade_items well">
 
-  <div class="span12">
-    <%= image_tag("trade.png", :alt => t('.title')) %>
+  <div class="col-md-12">
+    <%= image_tag("trade.png", :alt => t('.title'), class: "img-responsive") %>
     <p><%= t '.description' %></p>
     <hr>
 
     <div class="row">
-      <div class="trade_sidebar span3 hidden-phone">
+      <div class="trade_sidebar col-md-3 hidden-xs">
         <h3>Sidebar</h3>
         <h4><a href="#tacos"><%= t '.tacos_for_sale' %></a></h4>
         <h4><a href="#hotsauce"><%= t '.hot_sauce_for_sale' %></a></h4>
         <h4><a href="#chips"><%= t '.chips_for_sale' %></a></h4>
       </div>
 
-      <div class="span9">
+      <div class="col-md-9">
         <% if @tacos.empty? && @hot_sauces.empty? && @chips.empty? %>
           <h1 class="trade_heading"><%= t '.no_items_found' %></h1>
         <% else %>
