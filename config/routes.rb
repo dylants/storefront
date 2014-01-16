@@ -4,7 +4,7 @@ Storefront::Application.routes.draw do
   resources :items
   resources :orders, only: [:create]
 
-  match "/dashboard", to: "dashboard#index"
+  get "/dashboard", to: "dashboard#index"
 
   root :to => 'home#index'
 end

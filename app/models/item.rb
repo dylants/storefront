@@ -13,7 +13,7 @@
 #
 
 class Item < ActiveRecord::Base
-  attr_accessible :name, :item_type, :description, :price
+  #attr_accessible :name, :item_type, :description, :price
 
   has_one :order
   belongs_to :user
